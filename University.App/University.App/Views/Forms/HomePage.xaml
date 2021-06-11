@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="University.App.Views.Forms.HomePage"
+             xmlns:i18n="clr-namespace:University.App.Helpers"
+             BackgroundColor="{DynamicResource Gray-200}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Margin="10,10"
+                     Spacing="-355"
+                     VerticalOptions="FillAndExpand">
+
+            <Image HeightRequest="250"                       
+                   Source="logo_complete"/>
+
+            <Grid RowSpacing="10"
+                  VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label     Grid.Row="1"
+                           Text="{i18n:Translate Welcome}"
+                           FontSize="60"
+                           HorizontalTextAlignment="Center"
+                           Style="{StaticResource LabelStyle}"
+                           TextColor="{DynamicResource Gray-900}"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

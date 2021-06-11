@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "University.App": {
+      "commandName": "Executable"
+    }
+  }
+}

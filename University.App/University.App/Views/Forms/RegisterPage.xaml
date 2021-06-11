@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="University.App.Views.Forms.RegisterPage"
+             NavigationPage.HasNavigationBar="True"
+             xmlns:control="clr-namespace:University.App.Controls"
+             xmlns:i18n="clr-namespace:University.App.Helpers"
+             BackgroundColor="{DynamicResource Gray-200}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding Register}">
+            <StackLayout Margin="20,32"
+                         Spacing="0"
+                         VerticalOptions="FillAndExpand">
+
+                <Image HeightRequest="250"
+                       Source="Logo_Complete"/>
+
+                <Grid RowSpacing="10"
+                      VerticalOptions="CenterAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="1"
+                           Text="{i18n:Translate Register}" 
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"
+                           Style="{StaticResource LabelStyle}"
+                           TextColor="{DynamicResource Gray-900}"/>
+
+                <Label Grid.Row="2"
+                           Margin="0,8"
+                           HorizontalTextAlignment="Center"
+                           Text="{i18n:Translate CreateaNewAccount}"
+                           Style="{StaticResource LabelStyle}"
+                           TextColor="{DynamicResource Gray-800}"/>
+
+                    <control:BorderlessEntry Grid.Row="3"
+                                             Placeholder="{i18n:Translate Username}"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Email}"/>
+                    
+
+                    <control:BorderlessEntry Grid.Row="4"
+                                             Placeholder="{i18n:Translate Password}"
+                                             IsPassword="True"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Password}"/>
+                    
+                    <control:BorderlessEntry Grid.Row="5"
+                                             Placeholder="{i18n:Translate ConfirmPassword}"
+                                             IsPassword="True"
+                                             PlaceholderColor="{DynamicResource Gray-700}"
+                                             TextColor="{DynamicResource Gray-900}"
+                                             Style="{StaticResource EntryStyle}"
+                                             Text="{Binding Confirm_Password}"/>
+
+                    <Button Grid.Row="6"
+                            Margin="8"
+                            Text="{i18n:Translate Create}"
+                            Style="{StaticResource ButtonStyle}"
+                            Command="{Binding RegisterCommand}"
+                            IsEnabled="{Binding IsEnabled}"/>
+
+                </Grid>
+
+                <ActivityIndicator VerticalOptions="Center" 
+                                   IsRunning="{Binding IsRunning}"/>
+
+                <Label  HeightRequest="46"
+                        TextColor="{DynamicResource Gray-900}"
+                        TextDecorations="Underline"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="{i18n:Translate Login}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label  HeightRequest="46"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="{DynamicResource Gray-600}"
+                        Text="° 2021 - My ASP NET Application."/>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
